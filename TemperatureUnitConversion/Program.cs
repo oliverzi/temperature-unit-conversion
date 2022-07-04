@@ -7,8 +7,8 @@ namespace TempUnitConversion
         static void Main(string[] args)
         {
             double b = 0;
-            Console.Write("Enter the number you want to convert: ");
-            int a = (int)Convert.ToDouble(Console.ReadLine());
+            Console.Write("Enter the number you want to convert (use comma seperator for decimals): ");
+            double a = Convert.ToDouble(Console.ReadLine());
             Console.Write("Enter the unit of the number which you want to convert (C,F,K): ");
             string ua = Console.ReadLine();
             Console.Write("Enter the desired unit (C,F,K): ");
@@ -28,12 +28,14 @@ namespace TempUnitConversion
                                 }
                             case "F":
                                 {
-                                    b = a + 33.8;
+                                    b = a * 1.8 + 32;
                                     Console.WriteLine(b + " °F");
                                     break;
                                 }
                             case "K":
                                 {
+                                    b = a + 273.15;
+                                    Console.WriteLine(b + " K");
                                     break;
                                 }
                             default:
@@ -49,6 +51,8 @@ namespace TempUnitConversion
                         {
                             case "C":
                                 {
+                                    b = (a - 32) / 1.8;
+                                    Console.WriteLine(b + " °C");
                                     break;
                                 }
                             case "F":
@@ -59,6 +63,8 @@ namespace TempUnitConversion
                                 }
                             case "K":
                                 {
+                                    b = (a - 32) / 1.8 + 273.15;
+                                    Console.WriteLine(b + " K");
                                     break;
                                 }
                             default:
@@ -73,10 +79,14 @@ namespace TempUnitConversion
                         {
                             case "C":
                                 {
+                                    b = a - 273.15;
+                                    Console.WriteLine(b + " °C");
                                     break;
                                 }
                             case "F":
                                 {
+                                    b = 1.8 * (a - 273.15) + 32;
+                                    Console.WriteLine(b + " °F");
                                     break;
                                 }
                             case "K":
